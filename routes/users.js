@@ -4,7 +4,7 @@ var mongodb = require('mongodb');
 var objectId = mongodb.ObjectId;
 var getDB = require('../common/db-connection');
 
-/* GET users listing. */
+/* GET Api Testing. */
 router.get('/', function(req, res, next) {
   res.send('Testing...');
 });
