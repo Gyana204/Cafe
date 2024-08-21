@@ -51,6 +51,21 @@ router.put('/update-all-data', async function(req, res, next) {
     }
 })
 
+router.patch('/update', async function(req, res, next) {
+  try{
+    const id = req.query.id;
+    const data = req.body.data;
+
+    const db = await getDB();
+    const collection = db.collection("user");
+    const result = await collection.updateOne({_id: objectId.createFromHexString(id)}, {$set:data});
+    res.send(result);
+
+  }catch(error){
+    res.send(error.message);
+  }
+})
+
 /* Delete User Details */
 
 router.delete('/delete/:id', async function(req, res, next) {
